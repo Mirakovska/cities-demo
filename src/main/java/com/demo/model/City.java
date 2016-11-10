@@ -1,23 +1,27 @@
 package com.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.util.Objects;
 
+/***
+ * Model class that reflect the City table.
+ */
 @Table(name = "city")
 @Entity
 public class City {
 
-    private String country;
-
+    /**
+     * The unique identifier of the entity.
+     * Id is auto generated.
+     */
     @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator="CITY_SEQ")
-    @SequenceGenerator(name = "CITY_SEQ", sequenceName = "CITY_SEQ", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "CITY_SEQ")
+    @SequenceGenerator(name = "CITY_SEQ", sequenceName = "CITY_SEQ", allocationSize = 1)
     private Long id;
 
-    @JsonProperty
+    private String country;
+
     private String city;
 
     private String accent;
