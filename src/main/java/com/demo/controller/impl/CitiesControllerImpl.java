@@ -24,7 +24,7 @@ public class CitiesControllerImpl implements CitiesController {
     @RequestMapping(value = "/cities/{country}")
     public ResponseEntity getCitiesPerCountry(@PathVariable(value = "country") String country) {
         if (country == null || country.trim().equals(EMPTY_STRING)) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(citiesService.getCitiesPerCountry(country), HttpStatus.OK);
     }
